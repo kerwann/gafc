@@ -30,21 +30,21 @@ if __name__ == '__main__':
     #             'lot02282002_FFFstep-Right_RGBArray.npy',
     #             'lot02282001_ClinacStep-Center_RGBArray.npy']
 
-    # filesDose = ['lot02282002_HalcyonWedge90-Left_regDose.npy',
-    #              'lot02282002_HalcyonWedge90-Center_regDose.npy',
-    #              'lot02282002_HalcyonWedge90-Right_regDose.npy',
-    #              'lot02282002_HalcyonWedge-Left_regDose.npy',
-    #              'lot02282002_HalcyonWedge-Center_regDose.npy',
-    #              'lot02282002_HalcyonWedge-Right_regDose.npy']
-    # filesRGB = ['lot02282002_HalcyonWedge90-Left_RGBArray.npy',
-    #             'lot02282002_HalcyonWedge90-Center_RGBArray.npy',
-    #             'lot02282002_HalcyonWedge90-Right_RGBArray.npy',
-    #             'lot02282002_HalcyonWedge-Left_RGBArray.npy',
-    #             'lot02282002_HalcyonWedge-Center_RGBArray.npy',
-    #             'lot02282002_HalcyonWedge-Right_RGBArray.npy']
+    filesDose = ['lot02282002_HalcyonWedge90-Left_regDose.npy',
+                 'lot02282002_HalcyonWedge90-Center_regDose.npy',
+                 'lot02282002_HalcyonWedge90-Right_regDose.npy',
+                 'lot02282002_HalcyonWedge-Left_regDose.npy',
+                 'lot02282002_HalcyonWedge-Center_regDose.npy',
+                 'lot02282002_HalcyonWedge-Right_regDose.npy']
+    filesRGB = ['lot02282002_HalcyonWedge90-Left_RGBArray.npy',
+                'lot02282002_HalcyonWedge90-Center_RGBArray.npy',
+                'lot02282002_HalcyonWedge90-Right_RGBArray.npy',
+                'lot02282002_HalcyonWedge-Left_RGBArray.npy',
+                'lot02282002_HalcyonWedge-Center_RGBArray.npy',
+                'lot02282002_HalcyonWedge-Right_RGBArray.npy']
 
-    filesDose = ['lot02282002_HalcyonWedge90-Center_regDose.npy']
-    filesRGB = ['lot02282002_HalcyonWedge90-Center_RGBArray.npy']
+    # filesDose = ['lot02282002_HalcyonWedge-Center_regDose.npy']
+    # filesRGB = ['lot02282002_HalcyonWedge-Center_RGBArray.npy']
 
     batch_size = 1
 

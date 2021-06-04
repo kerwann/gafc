@@ -65,25 +65,25 @@ class RBGBDataset(Dataset):
 
         self.normValue = 1.6
         self.rgb_path = os.path.join(path, filesRGB[0])
-        rgb = np.load(self.rgb_path)
+        rgb = np.load(self.rgb_path).astype(np.float32)
         rb = rgb[:,:,0]/rgb[:,:,2]
         gb = rgb[:,:,1]/rgb[:,:,2]
-        self.rbgb = np.zeros((rb.shape[0],rb.shape[1],2))
-        self.rbgb[:,:,0] = (rb / self.normValue).astype(np.float32) # Normalisation? np.amax(rb)
-        self.rbgb[:,:,1] = (gb / self.normValue).astype(np.float32)
+        self.rbgb = np.zeros((rb.shape[0],rb.shape[1],2)).astype(np.float32)
+        self.rbgb[:,:,0] = (rb / self.normValue)       # Normalisation? np.amax(rb)
+        self.rbgb[:,:,1] = (gb / self.normValue)
 
         self.dose_path = os.path.join(path, filesDose[0])
         self.dose = np.load(self.dose_path).astype(np.float32)
 
         for i in range(len(filesRGB)-1):
             newrgbpath = os.path.join(path, filesRGB[i+1])
-            rgb = np.load(newrgbpath)
+            rgb = np.load(newrgbpath).astype(np.float32)
             rb = rgb[:, :, 0] / rgb[:, :, 2]
             gb = rgb[:, :, 1] / rgb[:, :, 2]
-            rbgbtmp = np.zeros((rb.shape[0], rb.shape[1], 2))
-            rbgbtmp[:, :, 0] = (rb / self.normValue).astype(np.float32)
-            rbgbtmp[:, :, 1] = (gb / self.normValue).astype(np.float32)
-            self.rbgb = np.concatenate((self.rgb, rbgbtmp), axis=0)
+            rbgbtmp = np.zeros((rb.shape[0], rb.shape[1], 2)).astype(np.float32)
+            rbgbtmp[:, :, 0] = (rb / self.normValue)
+            rbgbtmp[:, :, 1] = (gb / self.normValue)
+            self.rbgb = np.concatenate((self.rbgb, rbgbtmp), axis=0)
 
             newdosepath = os.path.join(path, filesDose[i+1])
             dosetmp = np.load(newdosepath).astype(np.float32)

@@ -7,6 +7,8 @@ import matplotlib.cm as cm
 
 from gafc.dataloader import RGBDataloader
 from gafc.model import ModelRGB
+from gafc.dataloader import RBGBDataloader
+from gafc.model import ModelRBGB
 
 if __name__ == '__main__':
 
@@ -37,20 +39,29 @@ if __name__ == '__main__':
     # filesDose = ['lot02282002_HalcyonWedge90-Right_regDose.npy']
     # filesRGB = ['lot02282002_HalcyonWedge90-Right_RGBArray.npy']
 
-    filesDose = ['lot02282002_HalcyonWedge-Left_regDose.npy']
-    filesRGB = ['lot02282002_HalcyonWedge-Left_RGBArray.npy']
-    # filesDose = ['lot02282002_HalcyonWedge-Center_regDose.npy']
-    # filesRGB = ['lot02282002_HalcyonWedge-Center_RGBArray.npy']
+    # filesDose = ['lot02282002_HalcyonWedge-Left_regDose.npy']
+    # filesRGB = ['lot02282002_HalcyonWedge-Left_RGBArray.npy']
+    filesDose = ['lot02282002_HalcyonWedge-Center_regDose.npy']
+    filesRGB = ['lot02282002_HalcyonWedge-Center_RGBArray.npy']
     # filesDose = ['lot02282002_HalcyonWedge-Right_regDose.npy']
     # filesRGB = ['lot02282002_HalcyonWedge-Right_RGBArray.npy']
+
+    # filesDose = ['lot02282002_HalcyonStar-Left_regDose.npy']
+    # filesRGB = ['lot02282002_HalcyonStar-Left_RGBArray.npy']
+    # filesDose = ['lot02282002_HalcyonStar-Center_regDose.npy']
+    # filesRGB = ['lot02282002_HalcyonStar-Center_RGBArray.npy']
+    # filesDose = ['lot02282002_HalcyonStar-Right_regDose.npy']
+    # filesRGB = ['lot02282002_HalcyonStar-Right_RGBArray.npy']
 
 
     batch_size = 1 #a ne plus changer !
 
-    dataloader = RGBDataloader(root_training, filesRGB, filesDose, batch_size, shuffle=False)
+    # dataloader = RGBDataloader(root_training, filesRGB, filesDose, batch_size, shuffle=False)
+    dataloader = RBGBDataloader(root_training, filesRGB, filesDose, batch_size, shuffle=False)
     dataset = dataloader.load_data()
 
-    model = ModelRGB(expr_dir, batch_size=batch_size, nf=64)
+    # model = ModelRGB(expr_dir, batch_size=batch_size, nf=64)
+    model = ModelRBGB(expr_dir, batch_size=batch_size, nf=64)
 
     checkpoint = torch.load(os.path.join(expr_dir, "latest"))
     model.net.load_state_dict(checkpoint['net'])

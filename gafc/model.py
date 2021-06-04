@@ -183,12 +183,11 @@ class ModelRBGB:
             epoch_start_time = time.time()
             epoch_iter = 0
 
-            for rgb, dose in dataset:
+            for rbgb, dose in dataset:
                 total_steps += self.batch_size
                 epoch_iter += self.batch_size
 
-
-                dose_predicted = self.net.forward(rgb.transpose(1,2))
+                dose_predicted = self.net.forward(rbgb.transpose(1,2))
                 self.optimizer.zero_grad()
                 loss = self.loss(dose_predicted, dose)
                 loss.backward()
